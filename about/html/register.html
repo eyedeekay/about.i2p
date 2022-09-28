@@ -1,0 +1,53 @@
+{{ template "head" . }}
+<main>
+    <h1>Register</h1>
+
+    <p>This forum is for the <a href="http://i2p-projekt.i2p">I2P</a> community. To register, you need to host a file inside of I2P containing a verification code.</p>
+    <p>If you're a passerby, feel free to read the <a href="/">public threads</a>.</p>
+
+    <p>Your verification code is <b>{{ .Data.VerificationCode }}</b></p>
+    <details>
+        <summary>Verification instructions</summary>
+        <p>You can host your registration-verification code on your I2P site, or you can present your registration "ephemerally" at the command-line.</p>
+        <ul>
+            <li><b>I2P site:</b> Host a plaintext file somewhere on your I2P site containing the verification code from above.
+                Pass the link to the hosted file as the verification link below.</li>
+            <li><b>One-time hosting:</b> Use this tool: <a href="https://git.idk.i2p/idk/singlefile">git.idk.i2p/idk/singlefile</a> and pass the flag <code>--string={{ .Data.VerificationCode }}</code>.
+                Pass the link to the hosted file as the verification link below.</li>
+            <li><b>One-time hosting:</b> Use literally any file-hosting tool which can be proxied to I2P.
+                Pass the link to the hosted file as the verification link below.</li>
+        </ul>
+    </details>
+
+    <form method="post">
+        <label for="username">Username:</label>
+        <input type="text" required id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" minlength="9" required id="password" name="password" aria-describedby="password-help" style="margin-bottom:0;">
+        <div style="margin-bottom:1rem;"><small id="password-help">Must be at least 9 characters long.</small></div>
+        <label for="verificationlink">Verification link:</label>
+        <input type="text" required id="verification link" name="verificationlink">
+        <input type="hidden" name="verificationcode" value="{{.Data.VerificationCode}}">
+        <div>
+            <div style="display: none;">
+                <input type="checkbox" required id="coc" checked="true">
+                <label for="coc" style="display: none;">I am not a robot</label>
+            </div>
+            <div style="display: none;">
+                <input type="checkbox" required id="coc2" checked="true">
+                <label style="display: none;" for="coc2">Yes, I am actually not a robot</label>
+            </div>
+        </div>
+        <input type="submit" value="Register">
+    </form>
+
+
+
+    {{ if .Data.ErrorMessage }}
+    <div>
+        <p><b> {{ .Data.ErrorMessage }} </b></p>
+    </div>
+    {{ end }}
+
+</main>
+{{ template "footer" . }}

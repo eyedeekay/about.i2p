@@ -1,0 +1,52 @@
+{{ template "head" . }}
+<main>
+    <article>
+        <h1> About </h1>
+        <p>This is an alternative, small-internet forum for people in the I2P community.</p>
+        <p>The forum software was derived from <a href="https://github.com/cblgh/cerca">Cerca</a>, which was created by <a href="https://cblgh.org">cblgh</a> at the start of 2022.</p>
+        <p>I chose it because it's easy-to-setup, build, and modify, does not require a database server, and is written in an understandable way in a memory-safe language.</p>
+        <p>It has a unique, highly useful registration-verification procedure which I have adapted for I2P users.</p>
+
+        <p>If you have an I2P site, you can: <a href="/register">register</a> an account.</p>
+        <p>If you do not have an I2P site, you can still register, but it's slightly more involved for now: <a href="/register">register</a> an account. If you're a passerby, feel free to read the <a href="/">public threads</a>.</p>
+
+        <h2>Code of conduct</h2>
+        <p>This forum's code of conduct shall be defined in a forum thread and referenced here at a later date.</p>
+
+        <h2>Forum syntax</h2>
+        <p>Posts in the forum are made using <a href="https://en.wikipedia.org/wiki/Markdown#Examples">Markdown
+            syntax</a>.</p>
+        <p><b>**Bold text**</b> and <i>*italics*</i></p>
+
+        <ul>
+            <li>* lists</li>
+            <li>* like </li>
+            <li>* this </li>
+        </ul>
+
+        <p><blockquote>&gt; Blockquote</blockquote></p>
+
+        <p><code>`typewriter text`</code></p>
+
+        <!-- leave the <pre><code> blocks from reformatting! they render all their spacing :)-->
+<pre><code>```
+blocks of
+code like
+this
+```
+</code></pre>
+
+        <p>Create links like <code>[this](url)</code>, and embed images like: <code>![description](url)</code>. Note how the image
+        syntax's exclamation mark precedes the regular link syntax.</p>
+
+        <p>Each post in the thread can be referenced like <code>[this post](#12)</code>, where 12 is the post number which can be
+        found at each post timestamp.</p>
+
+<pre><code>this is one paragraph.
+this belongs to the same paragraph.
+
+this is a new paragraph
+</code></pre>
+    </article>
+</main>
+{{ template "footer" . }}

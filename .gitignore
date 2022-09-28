@@ -13,3 +13,9 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+about.i2p
+tmp.txt
+CercaForum
+onionkeys
+i2pkeys
+tlskeys
