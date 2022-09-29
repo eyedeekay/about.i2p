@@ -85,8 +85,10 @@ func main() {
 		panic(err)
 	}
 	defer garlic.Close()
-	http.DefaultClient.Transport = &http.Transport{
-		Dial: garlic.Dial,
+	http.DefaultClient = &http.Client{
+		Transport: &http.Transport{
+			Dial: garlic.Dial,
+		},
 	}
 	allowList := readAllowlist(allowlistLocation)
 	allowList = append(allowList, "*.i2p")
