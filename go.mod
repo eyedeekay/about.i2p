@@ -1,6 +1,6 @@
 module github.com/eyedeekay/about.i2p
 
-replace cerca => ../../cblgh/cerca 
+replace cerca => ../../cblgh/cerca
 
 replace cerca/html => ./about/html
 
@@ -8,12 +8,12 @@ go 1.19
 
 require (
 	cerca v0.0.0-00010101000000-000000000000
+	github.com/eyedeekay/goSam v0.32.54-0.20220828173749-a439c971e8de
 	github.com/eyedeekay/onramp v0.0.0-20220829050101-64cb1842d0f0
 )
 
 require (
 	github.com/aymerick/douceur v0.2.0 // indirect
-	github.com/carlmjohnson/requests v0.22.1 // indirect
 	github.com/cretz/bine v0.2.0 // indirect
 	github.com/eyedeekay/i2pkeys v0.0.0-20220804220722-1048b5ce6ba7 // indirect
 	github.com/eyedeekay/sam3 v0.33.3 // indirect
