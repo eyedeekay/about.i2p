@@ -10,12 +10,20 @@
         <summary>Verification instructions</summary>
         <p>You can host your registration-verification code on your I2P site, or you can present your registration "ephemerally" at the command-line.</p>
         <ul>
+            <li><b>Using <code>singlefile</code>:</b> Using this tool: <a href="https://git.idk.i2p/idk/singlefile">git.idk.i2p/idk/singlefile</a>
+                you can host a site with only your authorization code and no other content.
+                Binary releases are available from <a href="https://github.com/eyedeekay/singlefile/releases">Github</a>.
+                When using a binary:
+                <ol>
+                <li>Download a binary from the <a href="https://github.com/eyedeekay/singlefile/releases">github releases page</a></li>
+                <li>Run the executable and fill out the dialog box with your verification code.</li>
+                <li>Copy the URL from the final dialog box and paste it into the form.</li>
+                </ol></li>
             <li><b>I2P site:</b> Host a plaintext file somewhere on your I2P site containing the verification code from above.
                 Pass the link to the hosted file as the verification link below.</li>
-            <li><b>One-time hosting:</b> Use this tool: <a href="https://git.idk.i2p/idk/singlefile">git.idk.i2p/idk/singlefile</a> and pass the flag <code>-string={{ .Data.VerificationCode }}</code>.
-                Pass the link to the hosted file as the verification link below.</li>
-            <li><b>One-time hosting:</b> Use literally any file-hosting tool which can be proxied to I2P.
-                Pass the link to the hosted file as the verification link below.</li>
+            <li><b>Other hosting:</b> Use literally any file-hosting tool which can be proxied to I2P.
+                Pass the link to the hosted file as the verification link below.
+                This includes <code>git</code> hosts like <a href="https://git.idk.i2p">git.idk.i2p</a> or any other git host of your choice.</li>
         </ul>
     </details>
 
