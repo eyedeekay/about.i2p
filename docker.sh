@@ -8,6 +8,8 @@ if [ "${AUTH_KEY}" = "0" ]; then
     git clone https://github.com/eyedeekay/cerca ../../cblgh/cerca
     go build
     export AUTH_KEY=$(./about.i2p -genauthkey)
+    echo "$AUTH_KEY"
+    exit 0
 fi
 docker build -t eyedeekay/about.i2p .
 docker rm -f about.i2p
