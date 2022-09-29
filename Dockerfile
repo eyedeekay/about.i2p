@@ -8,5 +8,5 @@ RUN git clone https://github.com/eyedeekay/cerca ../../cblgh/cerca && \
     go build && \
     cp about.i2p /usr/bin/about.i2p
 USER user
-WORKDIR 
+WORKDIR /home/user/about.i2p
 CMD about.i2p
