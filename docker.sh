@@ -4,6 +4,10 @@ wd=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 git pull --all
 ## AUTH_KEY variable is in this file, edit it
 . "${wd}/env.sh"
+if [ "${AUTH_KEY}" == "0" ]; then
+    go build
+    export AUTH_KEY=$(./about.i2p -genauthkey)
+fi
 docker build -t eyedeekay/about.i2p .
 docker rm -f about.i2p
 mkdir -p "${HOME}/abouti2p"
