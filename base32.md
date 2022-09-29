@@ -1,3 +1,3 @@
 # An instance
 
- - [Instance Zero](https://7lt4mg3r2fpujmgdbpcyr4n736psoqjaztyoykrulk2r7zy3prsq.b32.i2p)
+ - [Instance Zero(idk's forum)](https://7lt4mg3r2fpujmgdbpcyr4n736psoqjaztyoykrulk2r7zy3prsq.b32.i2p)
