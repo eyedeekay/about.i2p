@@ -1,6 +1,7 @@
 #! /usr/bin/env sh
 
 wd=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+git pull --all
 ## AUTH_KEY variable is in this file, edit it
 . "${wd}/env.sh"
 docker build -t eyedeekay/about.i2p .
