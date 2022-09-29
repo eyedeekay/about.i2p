@@ -1,6 +1,8 @@
 package main
 
 import (
+	"crypto/rand"
+	"encoding/base32"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -40,11 +42,29 @@ func complain(msg string) {
 func main() {
 	var allowlistLocation string
 	var sessionKey string
+	var genAuthKey bool
 	var dir string
 	flag.StringVar(&allowlistLocation, "allowlist", "", "domains which can be used to read verification codes from during registration")
 	flag.StringVar(&sessionKey, "authkey", "", "session cookies authentication key")
+	flag.BoolVar(&genAuthKey, "genauthkey", false, "generate a valid session cookies authentication key")
 	flag.StringVar(&dir, "dir", "", "directory to run in")
 	flag.Parse()
+	if genAuthKey {
+		c := 64
+		b := make([]byte, c)
+		_, err := rand.Read(b)
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+		// The slice should now contain random bytes instead of only zeroes.
+		//fmt.Println(bytes.Equal(b, make([]byte, c)))
+		dst := make([]byte, base32.StdEncoding.EncodedLen(len(b)))
+		base32.StdEncoding.Encode(dst, b)
+		fmt.Println(string(dst))
+		//fmt.Println(b)
+		os.Exit(0)
+	}
 	if len(sessionKey) == 0 {
 		complain("please pass a random session auth key with --authkey")
 	} else if len(allowlistLocation) == 0 {
