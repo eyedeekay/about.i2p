@@ -15,6 +15,7 @@ import (
 	"cerca/util"
 
 	"github.com/eyedeekay/about.i2p/about"
+	"github.com/eyedeekay/goSam"
 	"github.com/eyedeekay/onramp"
 )
 
@@ -85,11 +86,20 @@ func main() {
 		panic(err)
 	}
 	defer garlic.Close()
-	http.DefaultClient = &http.Client{
+	sam, err := goSam.NewDefaultClient()
+	if err != nil {
+		panic(err)
+	}
+
+	log.Println("Client Created")
+
+	// create a transport that uses SAM to dial TCP Connections
+	http.DefaultClient := &http.Client{
 		Transport: &http.Transport{
-			Dial: garlic.Dial,
+			Dial: sam.Dial,
 		},
 	}
+
 	allowList := readAllowlist(allowlistLocation)
 	allowList = append(allowList, "*.i2p")
 	allowList = append(allowList, "*.b32.i2p")
