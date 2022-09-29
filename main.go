@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
@@ -47,7 +48,16 @@ func main() {
 	if len(sessionKey) == 0 {
 		complain("please pass a random session auth key with --authkey")
 	} else if len(allowlistLocation) == 0 {
-		complain("please pass a file containing the verification code domain allowlist")
+		//complain("please pass a file containing the verification code domain allowlist")
+		allowlistLocation = "allow.txt"
+		if err := ioutil.WriteFile(allowlistLocation, []byte(""), 0644); err != nil {
+			panic(err)
+		}
+	}
+	if _, err := os.Stat(allowlistLocation); os.IsNotExist(err) {
+		if err := ioutil.WriteFile(allowlistLocation, []byte(""), 0644); err != nil {
+			panic(err)
+		}
 	}
 
 	garlic, err := onramp.NewGarlic("about.i2p", "127.0.0.1:7656", []string{})
