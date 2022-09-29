@@ -4,7 +4,7 @@ wd=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 git pull --all
 ## AUTH_KEY variable is in this file, edit it
 . "${wd}/env.sh"
-if [ "${AUTH_KEY}" == "0" ]; then
+if [ "${AUTH_KEY}" = "0" ]; then
     go build
     export AUTH_KEY=$(./about.i2p -genauthkey)
 fi
