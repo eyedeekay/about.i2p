@@ -94,7 +94,7 @@ func main() {
 	log.Println("Client Created")
 
 	// create a transport that uses SAM to dial TCP Connections
-	http.DefaultClient := &http.Client{
+	http.DefaultClient = &http.Client{
 		Transport: &http.Transport{
 			Dial: sam.Dial,
 		},
