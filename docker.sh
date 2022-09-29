@@ -8,7 +8,9 @@ if [ "${AUTH_KEY}" = "0" ]; then
     if [ ! -d ../../cblgh/cerca ]; then
         git clone https://github.com/eyedeekay/cerca ../../cblgh/cerca
     fi
-    go build
+    if [ ! -f about.i2p ]; then
+        go build
+    fi
     export AUTH_KEY=$(./about.i2p -genauthkey)
     echo "$AUTH_KEY"
     exit 0
