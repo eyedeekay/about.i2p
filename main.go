@@ -67,7 +67,7 @@ func main() {
 		os.Exit(0)
 	}
 	if len(sessionKey) == 0 {
-		complain("please pass a random session auth key with --authkey")
+		complain("please pass a random session auth key with -authkey")
 	} else if len(allowlistLocation) == 0 {
 		//complain("please pass a file containing the verification code domain allowlist")
 		allowlistLocation = "allow.txt"
