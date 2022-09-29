@@ -84,6 +84,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer garlic.Close()
 	http.DefaultClient.Transport = &http.Transport{
 		Dial: garlic.Dial,
 	}
@@ -93,6 +94,7 @@ func main() {
 	if ln, err := garlic.ListenTLS(); err != nil {
 		panic(err)
 	} else {
+		defer ln.Close()
 		allowList = append(allowList, ln.Addr().String())
 		if cercaServer, err := about.NewServer(allowList, sessionKey, dir); err != nil {
 			panic(err)
