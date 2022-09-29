@@ -5,7 +5,9 @@ git pull --all
 ## AUTH_KEY variable is in this file, edit it
 . "${wd}/env.sh"
 if [ "${AUTH_KEY}" = "0" ]; then
-    git clone https://github.com/eyedeekay/cerca ../../cblgh/cerca
+    if [ ! -d ../../cblgh/cerca ]; then
+        git clone https://github.com/eyedeekay/cerca ../../cblgh/cerca
+    fi
     go build
     export AUTH_KEY=$(./about.i2p -genauthkey)
     echo "$AUTH_KEY"
