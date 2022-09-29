@@ -1,0 +1,1 @@
+export AUTH_KEY="0" ##!IMPORTANT edit this file if you intend to use docker.sh
